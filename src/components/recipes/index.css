@@ -7,7 +7,9 @@
     border: #333;
     border-style: solid;
     border-width: 1px;
+    border-radius: 20px;
     background-color: #333;
+    overflow: hidden;
 }
 
 .recipe-image {
