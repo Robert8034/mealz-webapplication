@@ -1,6 +1,8 @@
 import NavBar from "components/navbar"
+import Register from "components/register";
 import React, { Component} from "react"
 import { Container, Form, Button } from "react-bootstrap"
+import { Redirect } from "react-router";
 import { Post, Get } from "services/shared/api/Api";
 import ApiActions from "services/shared/api/ApiActions"
 import { setJwt } from "services/shared/cookie";
@@ -16,13 +18,8 @@ export default class Login extends Component {
         if (result.status === 200) {
             const data = await result.text();
             await setJwt(data);
-            const result2 = await Get(ApiActions.testGet);
-            if (result2.status === 200) {
-                console.log("Succes");
-            }
-            else console.log("Geen Succes 2")
+            window.location.pathname = "/";
         }
-        else console.log("Geen succes");
     }
 
     render() {
