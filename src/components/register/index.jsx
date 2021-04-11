@@ -10,7 +10,9 @@ export default class Register extends Component {
         email: "",
         emailConfirm: "",
         password: "",
-        passwordConfirm: ""
+        passwordConfirm: "",
+        displayName: "",
+        biography: ""
     };
 
     async register(e) {
@@ -36,7 +38,7 @@ export default class Register extends Component {
              } 
         }); 
     }
-
+    
     render() {
         return (
             <div className="register">
@@ -45,8 +47,8 @@ export default class Register extends Component {
                     <h2>Register</h2>
                     <Form onSubmit={this.register} id="registerForm">
                     <Form.Group>
-                            <Form.Label>Username</Form.Label>
-                            <Form.Control type="text" placeholder="Username" name="username"/>
+                            <Form.Label>Name</Form.Label>
+                            <Form.Control type="text" placeholder="What do we call you?" name="displayName" onChange={this.changeHandler} value={this.state.displayName}/>
                             <Form.Text className="text-muted">This name will be displayed to everyone.</Form.Text>
                         </Form.Group>
                         <Form.Group>
@@ -63,6 +65,10 @@ export default class Register extends Component {
                         </Form.Group>
                         <Form.Group>
                             <Form.Control type="password" placeholder="Confirm Password" name="passwordConfirm" onChange={this.changeHandler} value={this.state.passwordConfirm}/>
+                        </Form.Group>
+                        <Form.Group>
+                            <Form.Label>Biography</Form.Label>
+                            <Form.Control type="textarea" placeholder="Tell us something about yourself" name="biography" onChange={this.changeHandler} value={this.state.biography}/>
                         </Form.Group>
                         <Button variant="primary" type="submit">Submit</Button>
                     </Form>

@@ -1,5 +1,4 @@
 import NavBar from "components/navbar"
-import Register from "components/register";
 import React, { Component} from "react"
 import { Container, Form, Button } from "react-bootstrap"
 import { Redirect } from "react-router";
