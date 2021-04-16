@@ -6,6 +6,7 @@ import Home from "components/home";
 import Login from "components/login";
 import Register from "components/register";
 import Account from "components/account";
+import CreatePost from "components/createPost";
 
 function routes() {
   return (
@@ -14,6 +15,7 @@ function routes() {
       <Route exact path={ routerPaths.Login} component={Login}/>
       <Route exact path={ routerPaths.Register} component={Register}/>
       <Route exact path={ routerPaths.Account} component={Account}/>
+      <Route exact path={ routerPaths.CreatePost} component={CreatePost}/>
     </Router>
   );
 }

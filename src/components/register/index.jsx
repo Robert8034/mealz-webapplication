@@ -21,7 +21,10 @@ export default class Register extends Component {
         const formDataObj = Object.fromEntries(formData.entries());
 
         const result = await Post(ApiActions.register, formDataObj);
-        if (result.status !== 200) {
+        if (result.status === 200) {
+            window.location.pathname = "/login";   
+        }
+        else{
             alert("Het ging fout");
         }
 
