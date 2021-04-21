@@ -12,7 +12,7 @@ const fetchUserId = `${authenticationController}readToken`;
 const fetchAccountInfo = `${userController}getUser`;
 const updateUser = `${userController}updateUser`;
 const postRecipe = `${recipeController}postRecipe`;
-const getRecipes = `${recipeController}getRecipes`;
+const getRecipes = `${apiUrl}getRecipes`;
 
 const actions = {
     register: register,
