@@ -11,7 +11,8 @@ const login = `${apiUrl}authenticate`;
 const fetchUserId = `${authenticationController}readToken`;
 const fetchAccountInfo = `${userController}getUser`;
 const updateUser = `${userController}updateUser`;
-const postRecipe = `${recipeController}postRecipe`
+const postRecipe = `${recipeController}postRecipe`;
+const getRecipes = `${recipeController}getRecipes`;
 
 const actions = {
     register: register,
@@ -19,7 +20,8 @@ const actions = {
     fetchUserId: fetchUserId,
     fetchAccountInfo: fetchAccountInfo,
     updateUser: updateUser,
-    postRecipe: postRecipe
+    postRecipe: postRecipe,
+    getRecipes: getRecipes
 };
 
 export default actions;

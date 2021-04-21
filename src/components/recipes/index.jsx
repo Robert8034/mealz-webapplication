@@ -1,7 +1,16 @@
 import React, { Component} from "react"
 import "./index.css";
+var title;
+var content;
+var id;
 
 export default class Recipe extends Component {
+    constructor(props) {
+        super(props);
+        this.title = this.props.title;
+        this.content = this.props.content;
+        this.id = this.props.id;
+    }
 
     alertFunction = async(str) => {
         await alert(str);
@@ -13,8 +22,8 @@ export default class Recipe extends Component {
                 <div className="recipe-text">
                     <h1 onClick={() => {
                     this.alertFunction("Test");
-                    } }>Hello World</h1>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In erat libero, malesuada vitae magna id, Donec bibendum lacus arcu, sed venenatis leo venenatis et.a, non gravida augue turpis in dolor. Nulla tristique ipsum lectus, at scelerisque urna porta facilisis. Pellentesque consectetur dignissim mauris eget fringilla. Suspendisse eros mauris, sodales pretium augue et, vehicula interdum orci. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed tristique eget lacus et dictum. Ut sed bibendum nisi, in porttitor justo.</p>
+                    } }>{this.title}</h1>
+                    <p>{this.content}</p>
                 </div>
                 <div className="recipe-image">
                 </div>
