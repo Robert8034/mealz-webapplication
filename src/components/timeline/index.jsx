@@ -2,7 +2,7 @@ import Recipe from "components/recipes"
 import TimelineTop from "components/timelineTop"
 import React, { Component} from "react"
 import { Container, Button} from "react-bootstrap"
-import { Post } from "services/shared/api/Api";
+import { Post, Get } from "services/shared/api/Api";
 import ApiActions from "services/shared/api/ApiActions";
 import "./index.css"
 
@@ -31,7 +31,6 @@ export default class Timeline extends Component {
     }
 
     async loadMoreRecipes() {
-        console.log(this.state);
         const result = await Post(ApiActions.getRecipes, this.state.index);
         
         var recipes = this.state.recipes;

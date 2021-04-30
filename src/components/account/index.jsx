@@ -1,8 +1,9 @@
 import { Component } from "react";
-import { Post } from "services/shared/api/Api";
+import { Post, Delete } from "services/shared/api/Api";
 import { Container, Form, Button } from "react-bootstrap";
 import NavBar from "components/navbar";
 import ApiActions from "services/shared/api/ApiActions";
+import { unsetJwt } from "services/shared/cookie"
 import "./index.css";
 var userId = "";
 
@@ -15,6 +16,7 @@ export default class Account extends Component {
             biography: "",
             email: ""
         }
+        this.deleteUser = this.deleteUser.bind(this);
     }
 
     async changeAccount(e) {
@@ -42,7 +44,6 @@ export default class Account extends Component {
             const data = JSON.parse(jsonData);
             this.setState({userId: data.userId, displayName: data.displayName, biography: data.biography, email: data.email})
         }
-        console.log(this.state);
     }
 
     changeHandler = event => {
@@ -50,8 +51,18 @@ export default class Account extends Component {
         this.setState({ [event.target.name]: event.target.value})
     }
 
+    async deleteUser() {
+        const result = await Delete(ApiActions.deleteUser, this.state.userId);
+        if (result.status === 200) {
+            await unsetJwt();
+            window.location.pathname = "/login";
+        }
+        else {
+            alert("Het verwijderen van je accountgegevens ging fout")
+        }
+    }
+
     accountPage = () => {
-        console.log(this.state);
         return (
             <div className="account">
                 <NavBar></NavBar>
@@ -76,7 +87,13 @@ export default class Account extends Component {
                             <Form.Control type="text" placeholder="This is your unique ID in the system" name="userId" readOnly={true} value={this.state.userId}/>
                             <Form.Text className="text-muted">This is your unique ID in the system</Form.Text>
                         </Form.Group>
+                        <Form.Group>
                         <Button variant="primary" type="submit">Submit</Button>
+                        </Form.Group>
+                        <Form.Group>
+                            <Button variant="danger" onClick={this.deleteUser}>Delete my account</Button>
+                            <Form.Text className="text-muted">This action is not reversible, please think about what you're doing</Form.Text>
+                        </Form.Group>
                     </Form>
                 </Container>
             </div>

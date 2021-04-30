@@ -1,4 +1,4 @@
-const apiUrl = "https://localhost:50001/"
+const apiUrl = "https://localhost:50003/"
 
 //Controllers
 const authenticationController = `${apiUrl}authentication/`;
@@ -13,6 +13,8 @@ const fetchAccountInfo = `${userController}getUser`;
 const updateUser = `${userController}updateUser`;
 const postRecipe = `${recipeController}postRecipe`;
 const getRecipes = `${apiUrl}getRecipes`;
+const deleteUser = `${userController}deleteUser`;
+const getRole = `${authenticationController}getRole`;
 
 const actions = {
     register: register,
@@ -21,7 +23,9 @@ const actions = {
     fetchAccountInfo: fetchAccountInfo,
     updateUser: updateUser,
     postRecipe: postRecipe,
-    getRecipes: getRecipes
+    getRecipes: getRecipes,
+    deleteUser: deleteUser,
+    getRole: getRole
 };
 
 export default actions;

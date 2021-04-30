@@ -15,7 +15,7 @@ export const Get = async (action) => {
       referrerPolicy: "no-referrer",
     });
 
-    return await response.json();
+    return response;
   } catch (error) {
     return error;
   }
