@@ -4,6 +4,7 @@ const apiUrl = "https://localhost:50003/"
 const authenticationController = `${apiUrl}authentication/`;
 const userController = `${apiUrl}userservice/`;
 const recipeController = `${apiUrl}recipeservice/`;
+const moderationController = `${apiUrl}moderationservice/`;
 
 //Endpoints
 const register = `${apiUrl}register`;
@@ -15,6 +16,7 @@ const postRecipe = `${recipeController}postRecipe`;
 const getRecipes = `${apiUrl}getRecipes`;
 const deleteUser = `${userController}deleteUser`;
 const getRole = `${authenticationController}getRole`;
+const reportRecipe = `${moderationController}postReport`;
 
 const actions = {
     register: register,
@@ -25,7 +27,8 @@ const actions = {
     postRecipe: postRecipe,
     getRecipes: getRecipes,
     deleteUser: deleteUser,
-    getRole: getRole
+    getRole: getRole,
+    reportRecipe: reportRecipe
 };
 
 export default actions;

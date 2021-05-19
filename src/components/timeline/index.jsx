@@ -47,7 +47,7 @@ export default class Timeline extends Component {
 
     renderPage = () => {
         const renderedRecipes = this.state.recipes.map(function(recipe){
-            return <Recipe title={recipe.title} content={recipe.content} id={recipe.id}></Recipe>
+            return <Recipe title={recipe.title} content={recipe.content} id={recipe.recipeId}></Recipe>
         })
 
         return (

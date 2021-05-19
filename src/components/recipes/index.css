@@ -37,3 +37,8 @@
     padding: 10px;
     color: white;
 }
+
+.button {
+    height: 50%;
+    margin: 0;
+}
