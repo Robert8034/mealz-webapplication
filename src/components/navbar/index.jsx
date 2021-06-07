@@ -2,6 +2,8 @@ import React, { Component} from "react"
 import { Nav, Navbar } from "react-bootstrap"
 import { unsetJwt } from "services/shared/cookie"
 import Cookies from "universal-cookie"
+import { Get } from "services/shared/api/Api";
+import ApiActions from "services/shared/api/ApiActions";
 import "./index.css"
 
 export default class NavBar extends Component {
@@ -31,6 +33,12 @@ export default class NavBar extends Component {
                     </Nav.Item>
                     <Nav.Item>
                         <Nav.Link href="account">Account</Nav.Link>
+                    </Nav.Item>
+                    <Nav.Item>
+                        <Nav.Link href="requests">Requests</Nav.Link>
+                    </Nav.Item>
+                    <Nav.Item>
+                        <Nav.Link href="reports">Reports</Nav.Link>
                     </Nav.Item>
                 </Nav>
             </Navbar>

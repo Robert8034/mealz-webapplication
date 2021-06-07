@@ -3,7 +3,9 @@ const paths = {
     Login: "/login/",
     Register: "/register/",
     Account: "/account/",
-    CreatePost: "/createPost/"
+    CreatePost: "/createPost/",
+    Requests: "/requests/",
+    Reports: "/reports/"
   };
   
   export default paths;

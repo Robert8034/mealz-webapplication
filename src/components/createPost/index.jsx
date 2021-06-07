@@ -1,7 +1,7 @@
 import NavBar from "components/navbar";
 import { Component } from "react";
 import ApiActions from "services/shared/api/ApiActions";
-import { Post } from "services/shared/api/Api";
+import { Get, Post } from "services/shared/api/Api";
 import { Container, Form, Button } from "react-bootstrap";
 import "./index.css";
 var userId = "";
@@ -23,9 +23,18 @@ export default class CreatePost extends Component {
         formData.append("userId", JSON.parse(userId));
         const formDataObj = Object.fromEntries(formData.entries());
 
-        const result = await Post(ApiActions.postRecipe, formDataObj);
-        if (result.status === 200) {
-            window.location.pathname = "/";
+        console.log(formDataObj);
+        const profanity = await Get("https://mealzprofanityfilter.azurewebsites.net/api/ProfanityFilter?name=" + formDataObj.content);
+
+        if (profanity.status === 200) {
+            const result = await Post(ApiActions.postRecipe, formDataObj);
+            if (result.status === 200) {
+                window.location.pathname = "/";
+            }
+        }
+
+        else {
+            alert("Your post contains profanity");   
         }
     }
    
