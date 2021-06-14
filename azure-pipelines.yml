@@ -6,25 +6,32 @@
 trigger:
 - master
 
-pool:
-  vmImage: ubuntu-latest
+stages:
+- stage: Build
+  displayName: Build Stage
 
   jobs:
-  build:
-    env:
-      CI: false
-    runs-on: ubuntu-latest
+  - job: Build
+    displayName: Build
 
-    strategy:
-      matrix:
-        node-version: [12]
+    pool:
+      vmImage: ubuntu-latest
 
-    steps:
-      - uses: actions/checkout@v2
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
-        with:
-          node-version: ${{ matrix.node-version }}
-      - run: npm ci
-      - run: npm run CI=false build --if-present
-      - run: npm test
+      env:
+        CI: false
+      runs-on: ubuntu-latest
+
+      strategy:
+        matrix:
+          node-version: [12]
+
+      steps:
+        - uses: actions/checkout@v2
+        - name: Use Node.js ${{ matrix.node-version }}
+          uses: actions/setup-node@v1
+          with:
+            node-version: ${{ matrix.node-version }}
+        - run: npm ci
+        - run: npm run CI=false build --if-present
+        - run: npm test
+ 
