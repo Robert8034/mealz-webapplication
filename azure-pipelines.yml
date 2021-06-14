@@ -21,12 +21,13 @@ stages:
         CI: false
      
       steps:
-        - uses: actions/checkout@v2
-        - name: Use Node.js 12
-          uses: actions/setup-node@v1
-          with:
-            node-version: 12
-        - run: npm ci
-        - run: npm run CI=false build --if-present
-        - run: npm test
+        -task:
+          - uses: actions/checkout@v2
+          - name: Use Node.js 12
+            uses: actions/setup-node@v1
+            with:
+              node-version: 12
+          - run: npm ci
+          - run: npm run CI=false build --if-present
+          - run: npm test
  
