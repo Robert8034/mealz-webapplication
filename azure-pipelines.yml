@@ -9,7 +9,7 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 
-jobs:
+  jobs:
   build:
     env:
       CI: false
