@@ -1,4 +1,4 @@
-const apiUrl = "https://localhost:50003/"
+const apiUrl = "http://20.61.248.25/"
 
 //Controllers
 const authenticationController = `${apiUrl}authentication/`;

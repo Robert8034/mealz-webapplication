@@ -75,7 +75,7 @@ export default class Request extends Component {
         var report = {
             ReportId: this.state.reportId,
             PostId: this.state.postId,
-            ReporterId: this.state.reportId
+            ReporterId: this.state.reporterId
         }
 
         const result = await Post(ApiActions.removeReport, report);
